@@ -14,7 +14,7 @@ const ContentWrapper = ({portrait, children}: ContentWrapperProps) => {
   if (portrait){
     return (
       <div className='self-start cursor-pointer relative rounded-2xl bg-primary 
-      overflow-hidden shadow-md hover:opacity-75 pb-8 sm:max-w-[30%] lg:max-w-[25%]'>
+      overflow-hidden shadow-md hover:opacity-75 pb-8 max-w-[45%] sm:max-w-[30%] lg:max-w-[25%]'>
         {children}
       </div>
     )
