@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lora.className} bg-[#fafbfc]`}>
+      <body className={`${lora.className} bg-[#fafbfc] pb-10`}>
         <Navbar />
         {children}
       </body>
