@@ -1,13 +1,14 @@
 import { client } from '@/lib/sanity'
 import React from 'react'
 import PaintingCard from './paintingCard'
-import { Quote, Painting } from '../interface'
+import { Quote, Painting, ShortStory } from '../interface'
 import QuoteCard from './quoteCard'
+import ShortTextCard from './shortStoryCard'
 
 
 
 const getData = async () => {
-  const query = `*[_type in ['painting', 'quote']] | order(_createdAt desc) {
+  const query = `*[_type in ['painting', 'quote', 'shortStory']] | order(_createdAt desc) {
       _type == 'painting' => {
         'id': _id,
         name,
@@ -23,15 +24,22 @@ const getData = async () => {
         autor,
         'createdAt': _createdAt,
         'type': _type
+      },
+      _type == 'shortStory' => {
+        'id': _id,
+        name,
+        content,
+        'createdAt': _createdAt,
+        'type': _type
       }
   }`
 
-  const data = await client.fetch(query)
+  const data : (Painting | Quote | ShortStory)[] = await client.fetch(query)
   return data
 }
 
 const Dashboard = async () => {
-  const data: (Painting | Quote)[] = await getData()
+  const data = await getData()
   return (
     <div className='flex flex-wrap gap-3 sm:gap-5 lg:gap-8 px-3 sm:px-12 lg:px-36 justify-center'>
       {data.map((publication) => {
@@ -43,6 +51,11 @@ const Dashboard = async () => {
         else if (publication.type == 'quote'){
           return (
             <QuoteCard key={publication.id} quote={publication as Quote} />
+          )
+        }
+        else if (publication.type == 'shortStory') {
+          return (
+            <ShortTextCard key={publication.id} shortStory={publication as ShortStory} />
           )
         }
       })}

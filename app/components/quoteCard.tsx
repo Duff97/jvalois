@@ -1,6 +1,7 @@
 import React from 'react'
 import { Quote } from '../interface'
 import { formatDate } from '@/lib/utils'
+import PublicationDate from './publicationDate'
 
 interface QuoteCardProps {
   quote: Quote
@@ -13,15 +14,13 @@ const QuoteCard = ({quote} : QuoteCardProps) => {
         <span className='absolute top-3 left-3'>"</span>
         <span className='absolute top-3 right-3'>"</span>
       </div>
-      <p className='text-wrap text-center text-xl font-semibold'>
+      <p className='text-wrap text-center text-xl font-bold'>
         {quote.quote}
       </p>
-      <p className='text-right pt-3'>
+      <p className='text-right pt-3 italic font-semibold'>
         - {quote.autor}
       </p>
-      <p className='absolute bottom-3 right-3 text-right text-sm  text-sky-200'>
-        {formatDate(quote.createdAt)}
-      </p>
+      <PublicationDate createdAt={quote.createdAt} />
     </div>
   )
 }

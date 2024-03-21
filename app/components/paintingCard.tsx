@@ -4,6 +4,7 @@ import { Painting } from '../interface'
 import { urlFor } from '@/lib/sanity'
 import {getImageDimensions} from '@sanity/asset-utils'
 import { formatDate } from '@/lib/utils'
+import PublicationDate from './publicationDate'
 
 interface ContentWrapperProps {
   portrait: boolean
@@ -46,9 +47,7 @@ const PaintingCard = ({painting}: {painting: Painting}) => {
       <p className='text-center py-3 px-1 font-semibold text-xl text-wrap'>
         {painting.name}
       </p>
-      <p className='absolute bottom-3 right-3 text-right text-sm  text-sky-200'>
-        {formatDate(painting.createdAt)}
-      </p>
+      <PublicationDate createdAt={painting.createdAt} />
     </ContentWrapper>
   )
 }

@@ -15,3 +15,11 @@ export interface Quote {
   createdAt: Date
   type: string
 }
+
+export interface ShortStory {
+  id: string
+  name: string
+  content: string
+  createdAt: Date
+  type: string
+}
