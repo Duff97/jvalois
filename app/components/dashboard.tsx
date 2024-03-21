@@ -4,6 +4,7 @@ import PaintingCard from './paintingCard'
 import { Quote, Painting, ShortStory } from '../interface'
 import QuoteCard from './quoteCard'
 import ShortTextCard from './shortStoryCard'
+import { FilterWrapper } from '../providers/FilterProvider'
 
 
 
@@ -43,21 +44,16 @@ const Dashboard = async () => {
   return (
     <div className='flex flex-wrap gap-3 sm:gap-5 lg:gap-8 px-3 sm:px-12 lg:px-36 justify-center'>
       {data.map((publication) => {
-        if (publication.type == 'painting'){
-          return (
-            <PaintingCard key={publication.id} painting={publication as Painting} />
-          )
-        }
-        else if (publication.type == 'quote'){
-          return (
-            <QuoteCard key={publication.id} quote={publication as Quote} />
-          )
-        }
-        else if (publication.type == 'shortStory') {
-          return (
-            <ShortTextCard key={publication.id} shortStory={publication as ShortStory} />
-          )
-        }
+        
+        return (
+          <FilterWrapper publicationType={publication.type}>
+            <>
+              {publication.type == 'painting' && <PaintingCard key={publication.id} painting={publication as Painting} />}
+              {publication.type == 'quote' && <QuoteCard key={publication.id} quote={publication as Quote} />}
+              {publication.type == 'shortStory' && <ShortTextCard key={publication.id} shortStory={publication as ShortStory} />}
+            </>
+          </FilterWrapper>
+        )
       })}
     </div>
   )

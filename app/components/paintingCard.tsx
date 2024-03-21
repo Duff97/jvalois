@@ -1,10 +1,11 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import { Painting } from '../interface'
 import { urlFor } from '@/lib/sanity'
 import {getImageDimensions} from '@sanity/asset-utils'
-import { formatDate } from '@/lib/utils'
 import PublicationDate from './publicationDate'
+import { useFilter } from '../providers/FilterProvider'
 
 interface ContentWrapperProps {
   portrait: boolean
