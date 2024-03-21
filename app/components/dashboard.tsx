@@ -46,11 +46,11 @@ const Dashboard = async () => {
       {data.map((publication) => {
         
         return (
-          <FilterWrapper publicationType={publication.type}>
+          <FilterWrapper key={publication.id} publicationType={publication.type}>
             <>
-              {publication.type == 'painting' && <PaintingCard key={publication.id} painting={publication as Painting} />}
-              {publication.type == 'quote' && <QuoteCard key={publication.id} quote={publication as Quote} />}
-              {publication.type == 'shortStory' && <ShortTextCard key={publication.id} shortStory={publication as ShortStory} />}
+              {publication.type == 'painting' && <PaintingCard painting={publication as Painting} />}
+              {publication.type == 'quote' && <QuoteCard quote={publication as Quote} />}
+              {publication.type == 'shortStory' && <ShortTextCard shortStory={publication as ShortStory} />}
             </>
           </FilterWrapper>
         )
