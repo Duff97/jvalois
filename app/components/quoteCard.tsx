@@ -11,8 +11,8 @@ const QuoteCard = ({quote} : QuoteCardProps) => {
   return (
     <div className='bg-primary rounded-2xl pt-10 px-10 self-start relative sm:max-w-[45%] lg:max-w-[35%] pb-12 shadow-md'>
       <div className='font-bold text-5xl'>
-        <span className='absolute top-3 left-3'>"</span>
-        <span className='absolute top-3 right-3'>"</span>
+        <span className='absolute top-3 left-3'>&quot;</span>
+        <span className='absolute top-3 right-3'>&quot;</span>
       </div>
       <p className='text-wrap text-center text-xl font-bold'>
         {quote.quote}
