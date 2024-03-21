@@ -1,3 +1,4 @@
-import peinture from "./peinture";
+import painting from "./painting"
+import quote from "./quote"
 
-export const schemaTypes = [peinture]
+export const schemaTypes = [painting, quote]
