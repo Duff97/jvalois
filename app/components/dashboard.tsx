@@ -6,7 +6,7 @@ import QuoteCard from './quoteCard'
 import ShortTextCard from './shortStoryCard'
 import { FilterWrapper } from '../providers/FilterProvider'
 
-
+export const dynamic = 'force-dynamic'
 
 const getData = async () => {
   const query = `*[_type in ['painting', 'quote', 'shortStory']] | order(_createdAt desc) {
