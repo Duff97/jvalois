@@ -42,7 +42,7 @@ const getData = async () => {
 const Dashboard = async () => {
   const data = await getData()
   return (
-    <div className='flex flex-wrap gap-3 sm:gap-5 lg:gap-8 px-3 sm:px-12 lg:px-36 justify-center'>
+    <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 px-3'>
       {data.map((publication) => {
         
         return (

@@ -22,7 +22,7 @@ const ShortStoryContentPreview = ({content} : {content: string}) => {
 const ShortStoryCard = ({shortStory}: ShortStoryCardProps) => {
   const [expanded, setExpanded] = useState(false)
   return (
-    <div onClick={() => {setExpanded(!expanded)}} className='self-start relative rounded-2xl bg-primary pt-5 px-3 sm:px-5 shadow-md xl:max-w-[45%] pb-20 hover:opacity-75 cursor-pointer'>
+    <div onClick={() => {setExpanded(!expanded)}} className='self-start relative rounded-2xl bg-primary pt-5 px-3 sm:px-5 shadow-md pb-20 hover:opacity-75 cursor-pointer'>
       <p className='font-bold text-3xl pb-5'>
         {shortStory.name}
       </p>
