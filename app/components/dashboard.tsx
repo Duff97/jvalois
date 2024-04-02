@@ -42,16 +42,16 @@ const getData = async () => {
 const Dashboard = async () => {
   const data = await getData()
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 px-3'>
+    <div className='columns-1 sm:columns-3 lg:columns-4 xl:columns-5 px-3'>
       {data.map((publication) => {
         
         return (
           <FilterWrapper key={publication.id} publicationType={publication.type}>
-            <>
+            <div className='my-3 break-inside-avoid-column'>
               {publication.type == 'painting' && <PaintingCard painting={publication as Painting} />}
               {publication.type == 'quote' && <QuoteCard quote={publication as Quote} />}
               {publication.type == 'shortStory' && <ShortTextCard shortStory={publication as ShortStory} />}
-            </>
+            </div>
           </FilterWrapper>
         )
       })}
