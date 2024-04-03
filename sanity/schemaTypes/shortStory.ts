@@ -10,7 +10,8 @@ export default {
     },
     {
       name: 'content',
-      type: 'text',
+      type: 'array', 
+      of: [{type: 'block'}],
       title: 'Contenu',
     },
   ]

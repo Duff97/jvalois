@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "next-sanity"
+
 export interface Painting {
   id: string
   name: string
@@ -19,7 +21,7 @@ export interface Quote {
 export interface ShortStory {
   id: string
   name: string
-  content: string
+  content: PortableTextBlock[]
   createdAt: Date
   type: string
 }

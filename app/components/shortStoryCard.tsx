@@ -3,17 +3,16 @@ import React, { useState } from 'react'
 import { ShortStory } from '../interface'
 import PublicationDate from './publicationDate'
 import { FoldVertical, UnfoldVertical } from 'lucide-react'
+import {PortableText, PortableTextBlock} from '@portabletext/react'
 
 interface ShortStoryCardProps {
   shortStory: ShortStory
 }
 
-const ShortStoryContentPreview = ({content} : {content: string}) => {
+const ShortStoryContentPreview = ({content} : {content: PortableTextBlock[]}) => {
   return (
-    <div className='relative overflow-clip max-h-[150px]'>
-      <p className='font-semibold text-lg text-wrap'>
-        {content}
-      </p>
+    <div className='relative overflow-clip max-h-[150px] portable'>
+      <PortableText value={content} />
       <div className='absolute inset-0 bg-gradient-to-b from-primary/0 to-primary/100' />
     </div>
   )
@@ -27,9 +26,9 @@ const ShortStoryCard = ({shortStory}: ShortStoryCardProps) => {
         {shortStory.name}
       </p>
       {!expanded && <ShortStoryContentPreview content={shortStory.content} />}
-      {expanded && <p className='font-semibold text-lg text-wrap'>
-        {shortStory.content}
-      </p>}
+      {expanded && <div className='portable'>
+        <PortableText value={shortStory.content} />
+      </div>}
       <PublicationDate createdAt={shortStory.createdAt} />
       <div className='flex justify-center'>
         <div className='bg-sky-200 rounded-full w-10 h-10 flex justify-center items-center absolute bottom-5'>
