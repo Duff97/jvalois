@@ -3,6 +3,7 @@ import { Quote, Painting, ShortStory } from '../interface'
 import MasonryGrid from './masonryGrid'
 
 const getData = async () => {
+  const revalidate = 60
   const query = `*[_type in ['painting', 'quote', 'shortStory']] | order(_createdAt desc) {
       _type == 'painting' => {
         'id': _id,
@@ -29,11 +30,9 @@ const getData = async () => {
       }
   }`
 
-  const data : (Painting | Quote | ShortStory)[] = await client.fetch(query)
+  const data : (Painting | Quote | ShortStory)[] = await client.fetch(query, {}, {next: {revalidate}})
   return data
 }
-
-export const dynamic = 'force-dynamic'
 
 const Dashboard = async () => {
   const data = await getData()
