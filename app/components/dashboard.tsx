@@ -2,8 +2,6 @@ import { client } from '@/lib/sanity'
 import { Quote, Painting, ShortStory } from '../interface'
 import MasonryGrid from './masonryGrid'
 
-export const dynamic = 'force-dynamic'
-
 const getData = async () => {
   const query = `*[_type in ['painting', 'quote', 'shortStory']] | order(_createdAt desc) {
       _type == 'painting' => {
@@ -34,6 +32,8 @@ const getData = async () => {
   const data : (Painting | Quote | ShortStory)[] = await client.fetch(query)
   return data
 }
+
+export const dynamic = 'force-dynamic'
 
 const Dashboard = async () => {
   const data = await getData()
