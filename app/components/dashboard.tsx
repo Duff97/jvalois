@@ -29,7 +29,7 @@ const getData = async () => {
       }
   }`
 
-  const data : (Painting | Quote | ShortStory)[] = await client.fetch(query, {}, {cache: 'no-store'})
+  const data : (Painting | Quote | ShortStory)[] = await client.fetch(query, {}, {cache: 'no-store', next: {revalidate: 60}})
   return data
 }
 
