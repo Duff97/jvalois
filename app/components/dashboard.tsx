@@ -1,4 +1,4 @@
-import { client } from '@/lib/sanity'
+import { client, fetchParams } from '@/lib/sanity'
 import { Quote, Painting, ShortStory } from '../interface'
 import MasonryGrid from './masonryGrid'
 
@@ -9,7 +9,7 @@ const getData = async () => {
         name,
         image,
         description,
-        slug,
+        'slug': slug.current,
         'createdAt': _createdAt,
         'type': _type
       },
@@ -29,7 +29,7 @@ const getData = async () => {
       }
   }`
 
-  const data : (Painting | Quote | ShortStory)[] = await client.fetch(query, {}, {cache: 'no-store', next: {revalidate: 60}})
+  const data : (Painting | Quote | ShortStory)[] = await client.fetch(query, {}, fetchParams)
   return data
 }
 
