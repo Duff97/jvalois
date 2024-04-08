@@ -11,7 +11,7 @@ interface ShortStoryCardProps {
 
 const ShortStoryContentPreview = ({content} : {content: PortableTextBlock[]}) => {
   return (
-    <div className='relative overflow-clip max-h-[150px] portable'>
+    <div className='text-lg leading-relaxed tracking-wide relative overflow-clip max-h-[150px] portable'>
       <PortableText value={content} />
       <div className='absolute inset-0 bg-gradient-to-b from-primary/0 to-primary/100' />
     </div>
@@ -26,7 +26,7 @@ const ShortStoryCard = ({shortStory}: ShortStoryCardProps) => {
         {shortStory.name}
       </p>
       {!expanded && <ShortStoryContentPreview content={shortStory.content} />}
-      {expanded && <div className='portable'>
+      {expanded && <div className='text-lg leading-relaxed tracking-wide portable'>
         <PortableText value={shortStory.content} />
       </div>}
       <PublicationDate createdAt={shortStory.createdAt} />

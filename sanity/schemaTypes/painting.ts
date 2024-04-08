@@ -15,8 +15,9 @@ export default {
     },
     {
       name: 'description',
-      type: 'text',
-      title: 'Description',
+      type: 'array', 
+      of: [{type: 'block'}],
+      title: 'Contenu',
     },
     {
       name: 'slug',

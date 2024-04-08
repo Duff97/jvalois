@@ -3,7 +3,7 @@ import { PortableTextBlock } from "next-sanity"
 export interface Painting {
   id: string
   name: string
-  description: string
+  description: PortableTextBlock[]
   image: any
   slug: string
   createdAt: Date

@@ -1,6 +1,7 @@
 import { Painting } from '@/app/interface'
 import { client, fetchParams, urlFor } from '@/lib/sanity'
 import { formatDate } from '@/lib/utils'
+import { PortableText } from '@portabletext/react'
 import {getImageDimensions} from '@sanity/asset-utils'
 import Image from 'next/image'
 import React from 'react'
@@ -44,9 +45,9 @@ const PaintingPage = async ({params} : {params: {slug: string}}) => {
         <h1 className='text-3xl font-extrabold text-primary'>
           {painting.name}
         </h1>
-        <p className='text-lg tracking-wide py-10 leading-relaxed font-medium'>
-          {painting.description}
-        </p>
+        <div className='tracking-wide py-10 leading-relaxed text-lg portable'>
+          <PortableText value={painting.description} />
+        </div>
         <p className='text-right text-primary tracking-wide pb-5 font-semibold'>
           Publié le {formatDate(painting.createdAt)}
         </p>
