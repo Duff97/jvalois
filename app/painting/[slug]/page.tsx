@@ -31,8 +31,8 @@ const PaintingPage = async ({params} : {params: {slug: string}}) => {
   })
   return (
     <div className='flex justify-center'>
-    <div className='grid grid-cols-1 sm:grid-cols-2 gap-10 px-3 sm:px-5 max-w-[1080px]'>
-      <div className='flex justify-end self-start shadow-xl rounded-2xl overflow-hidden shadow-gray-400'>
+    <div className='flex flex-col sm:flex-row justify-center items-center sm:items-start gap-10 px-3 sm:px-5 max-w-[1080px]'>
+      <div className='shadow-xl rounded-2xl overflow-hidden shadow-gray-400'>
         <Image
           className='object-contain'
           src={image}
