@@ -25,7 +25,8 @@ const getData = async () => {
         name,
         content,
         'createdAt': _createdAt,
-        'type': _type
+        'type': _type,
+        'slug': slug.current
       }
   }`
 

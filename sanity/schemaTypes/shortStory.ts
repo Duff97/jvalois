@@ -14,5 +14,13 @@ export default {
       of: [{type: 'block'}],
       title: 'Contenu',
     },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Lien url (clique sur "generate")',
+      options: {
+        source: 'name'
+      }
+    },
   ]
 }

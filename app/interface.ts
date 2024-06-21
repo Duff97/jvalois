@@ -24,4 +24,5 @@ export interface ShortStory {
   content: PortableTextBlock[]
   createdAt: Date
   type: string
+  slug: string
 }
